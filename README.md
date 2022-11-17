@@ -11,6 +11,17 @@ Fast and free anime website for browsing online embedded anime content
 3. Unintrusive
 4. Feature Rich 
 
+### Current Architecture and Tech Stack
+- Language: JavaScript
+- Client Framework: SolidJS
+- CSS Framework: Tailwind
+- CI/CD: Github Actions
+- CDN: Github Pages
+
+### Other Tools and Technologies
+- Wiki: Github Wiki
+- Mockup Tool: Penpot
+- Art: Krita, InkScape (original assets are saved in the freeanime/art repo)
 
 ### Disclaimer
 FreeAnime.tv does not store or serve any content from its servers. All contents are provided by non-affiliated third parties.
