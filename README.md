@@ -1,4 +1,4 @@
-# freeanime.tv
+# FreeAnime.tv
 Fast and free anime website for browsing online embedded anime content
 
 ### Design Rules
