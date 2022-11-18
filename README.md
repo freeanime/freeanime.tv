@@ -1,5 +1,5 @@
 # FreeAnime.tv
-Fast and free anime website for browsing online embedded anime content
+Fast and free anime website for browsing online embedded content
 
 ### Design Rules
 1. No backend. Being client-side allows use to have **zero** maintenance costs, which is important for the long-term survival of the project.
