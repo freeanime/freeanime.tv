@@ -9,12 +9,12 @@ Fast and free anime website for browsing online embedded content
 1. Fast
 2. Lightweight
 3. Unintrusive
-4. Feature Rich 
+4. Feature Rich
 
 ### Current Architecture and Tech Stack
 - Language: TypeScript
 - Bundler: Vite
-- Package Manager: Yarn3
+- Package Manager: npm
 - Client Framework: SolidJS
 - CSS Framework: Tailwind
 - CI/CD: Github Actions
@@ -24,6 +24,14 @@ Fast and free anime website for browsing online embedded content
 - Wiki: Github Wiki
 - Mockup Tool: Penpot
 - Art: Krita, Inkscape (original assets are saved in the freeanime/art repo)
+
+### Development
+```
+git clone https://github.com/freeanime/freeanime.tv.git
+cd freeanime.tv
+npm i # install dependencies
+npm run dev # build and run locally
+```
 
 ### Disclaimer
 FreeAnime.tv does not store or serve any content from its servers. All contents are provided by non-affiliated third parties.

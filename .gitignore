@@ -1,0 +1,11 @@
+/*
+!CNAME
+!.gitignore
+!index.html
+!LICENSE
+!package.json
+!package-lock.json
+!README.md
+!src
+!tsconfig.json
+!vite.config.ts
