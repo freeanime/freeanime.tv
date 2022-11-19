@@ -11,7 +11,7 @@ Fast and free anime website for browsing online embedded content
 3. Unintrusive
 4. Feature Rich
 
-### Current Architecture and Tech Stack
+### Architecture and Tech Stack
 - Language: TypeScript
 - Bundler: Vite
 - Package Manager: npm
