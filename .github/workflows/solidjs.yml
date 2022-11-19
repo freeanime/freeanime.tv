@@ -29,6 +29,8 @@ jobs:
         run: npm i
       - name: Build SolidJS project
         run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
 
   # Deployment job
   deploy:
