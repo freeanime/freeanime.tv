@@ -6,8 +6,7 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "lint-fix": "eslint --fix"
+    "serve": "vite preview"
   },
   "license": "MIT",
   "devDependencies": {
