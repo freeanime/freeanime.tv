@@ -32,6 +32,13 @@ cd freeanime.tv
 npm i # install dependencies
 npm run dev # build and run locally
 ```
+Recommended VSCode extensions:
+- [code-spell-checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+Recommended VSCode settings:
+
 
 ### Disclaimer
 FreeAnime.tv does not store or serve any content from its servers. All contents are provided by non-affiliated third parties.
