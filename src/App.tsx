@@ -3,15 +3,12 @@ import type { Component } from 'solid-js';
 import logo from './logo.svg';
 import styles from './App.module.css';
 
-const App: Component = () => {
-  return (
+const App: Component = () => (
     <div class={styles.App}>
       <header class={styles.header}>
         <img src={logo} class={styles.logo} alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
-
-          This is an added sentence.
         </p>
         <a
           class={styles.link}
@@ -24,6 +21,5 @@ const App: Component = () => {
       </header>
     </div>
   );
-};
 
 export default App;

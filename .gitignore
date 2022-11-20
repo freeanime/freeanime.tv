@@ -1,5 +1,7 @@
 /*
 !.github
+!.vscode
+!.eslintrc.json
 !.gitignore
 !index.html
 !LICENSE
