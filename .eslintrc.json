@@ -2,15 +2,13 @@
   "extends": [
     "airbnb-base",
     "airbnb-typescript/base",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/recommended",
     "plugin:solid/typescript",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier", "solid"],
-  "parserOptions": {
-    "project": ["./tsconfig.json"]
-  }
+  "parserOptions": { "project": ["./tsconfig.json"] },
+  "plugins": ["@typescript-eslint", "prettier", "solid"]
 }
