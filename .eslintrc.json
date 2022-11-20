@@ -11,5 +11,6 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": { "project": ["./tsconfig.json"] },
-  "plugins": ["@typescript-eslint", "prettier", "solid"]
+  "plugins": ["@typescript-eslint", "prettier", "solid"],
+  "rules": { "import/extensions": [ "error", "ignorePackages", { "": "never" } ] }
 }
