@@ -35,9 +35,13 @@ npm run dev # build and run locally
 Recommended VSCode extensions:
 - [code-spell-checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 Recommended VSCode settings:
+```
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+```
 
 
 ### Disclaimer
