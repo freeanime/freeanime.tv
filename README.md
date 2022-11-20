@@ -13,7 +13,6 @@ Fast and free anime website for browsing online embedded content
 
 ### Architecture and Tech Stack
 - Language: TypeScript
-- Bundler: Vite
 - Package Manager: npm
 - Client Framework: SolidJS
 - CSS Framework: Tailwind
