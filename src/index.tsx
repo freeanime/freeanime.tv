@@ -1,22 +1,14 @@
 import { render } from "solid-js/web";
 import { Router, Routes, Route, useNavigate } from "@solidjs/router";
-import { createSignal } from "solid-js";
+
+import source from "./pages/source";
+import episode from "./pages/episode";
 
 import Hacker from "./assets/crime-hacker-icon.svg";
-
-import Source from "./pages/[sourceDomain]";
-import Episode from "./pages/[sourceDomain]/title/[titleId]/[episodeId]";
-
 import "./index.css";
 
-function Index() {
+function index() {
   const navigate = useNavigate();
-
-  const [url, setUrl] = createSignal("");
-
-  const handleChange = (event: Event): void => {
-    setUrl((event.target as HTMLInputElement).value);
-  };
 
   return (
     <div class="bg-black w-screen h-screen flex justify-center items-center">
@@ -29,14 +21,18 @@ function Index() {
         <h4>Please enter your source......</h4>
         <br />
         <br />
-        <input
-          id="txtBoxSource"
-          placeholder="https://gogoanime.mom/"
-          type="text"
-          value={url()}
-          onChange={handleChange}
-        />
-        <button class="ml-4" onClick={() => navigate(`/${url()}`)}>
+        <input id="txtBoxSource" placeholder="gogoanime.mom" type="text" />
+        <button
+          class="ml-4"
+          onClick={() =>
+            navigate(
+              `/${
+                (document.getElementById("txtBoxSource") as HTMLInputElement)
+                  .value
+              }`
+            )
+          }
+        >
           Submit
         </button>
       </div>
@@ -48,11 +44,11 @@ render(
   () => (
     <Router>
       <Routes>
-        <Route path="/" component={Index} />
-        <Route path="/:sourceDomain" component={Source} />
+        <Route path="/" component={index} />
+        <Route path="/:sourceDomain" component={source} />
         <Route
           path="/:sourceDomain/title/:titleId/:episodeId"
-          component={Episode}
+          component={episode}
         />
       </Routes>
     </Router>

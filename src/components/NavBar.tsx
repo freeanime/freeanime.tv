@@ -1,5 +1,5 @@
-import retroTV from "../svg/retroTV.svg";
-import mGlass from "../svg/mGlass.svg";
+import retroTV from "../assets/retroTV.svg";
+import mGlass from "../assets/mGlass.svg";
 
 export default function NavBar() {
   return (
