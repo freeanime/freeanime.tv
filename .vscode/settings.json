@@ -3,7 +3,8 @@
     "source.fixAll.eslint": true
   },
   "cSpell.words": [
-    "freeanime"
+    "freeanime",
+    "solidjs"
   ],
   "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,

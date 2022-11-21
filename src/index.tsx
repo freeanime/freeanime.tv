@@ -4,7 +4,7 @@ import { Router, Routes, Route, useNavigate } from "@solidjs/router";
 import source from "./pages/source";
 import episode from "./pages/episode";
 
-import Hacker from "./assets/crime-hacker-icon.svg";
+import svgHacker from "./assets/crime-hacker-icon.svg";
 import "./index.css";
 
 function index() {
@@ -14,7 +14,7 @@ function index() {
     <div class="bg-black w-screen h-screen flex justify-center items-center">
       <div class="bg-white rounded-xl border p-4">
         <div class="flex justify-center items-center">
-          <img src={Hacker} class="h-15" alt="Hacker Logo" />
+          <img src={svgHacker} class="h-15" alt="Hacker Logo" />
         </div>
         <br />
         <h1>Welcome to FreeAnime.tv!</h1>
