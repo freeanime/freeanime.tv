@@ -7,10 +7,13 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:solid/typescript",
-    "prettier"
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": { "project": ["./tsconfig.json"] },
-  "plugins": ["@typescript-eslint", "prettier", "solid"],
-  "rules": { "import/extensions": [ "error", "ignorePackages", { "": "never" } ] }
+  "plugins": ["@typescript-eslint", "solid"],
+  "rules": { 
+    "import/extensions": [ "error", "ignorePackages", { "": "never" } ] ,
+    "prettier/prettier": [ "error", { "endOfLine" : "auto" } ]
+  }
 }

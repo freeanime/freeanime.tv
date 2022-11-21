@@ -1,13 +1,9 @@
-import NavBar from './NavBar';
+import NavBar from "./NavBar";
 
 export default function MainPage() {
   return (
     <div>
-
-
-        <NavBar/>
-
-
+      <NavBar />
     </div>
-  )
+  );
 }

@@ -1,3 +1,1 @@
-export default () => (
-  <div>this is the episode page</div>
-)
+export default () => <div>this is the episode page</div>;
