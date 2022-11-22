@@ -6,9 +6,8 @@ import "../assets/index.css";
 export default () => {
   const sourceList = getSourceList();
   const [, setSearchParams] = useSearchParams();
-  if (sourceList) {
-    setSearchParams({ s: sourceList[0] });
-  }
+  if (sourceList) setSearchParams({ s: sourceList[0] });
+
   return (
     <div class="bg-black w-screen h-screen flex justify-center items-center">
       <div class="bg-white rounded-xl border p-4">
