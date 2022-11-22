@@ -38,10 +38,9 @@ function index() {
                 .value
             );
             navigate(
-              // eslint-disable-next-line prettier/prettier
-              `/${(document.getElementById("txtBoxSource") as HTMLInputElement)
-                // eslint-disable-next-line prettier/prettier
-                .value
+              `/${
+                (document.getElementById("txtBoxSource") as HTMLInputElement)
+                  .value
               }`
             );
           }}
