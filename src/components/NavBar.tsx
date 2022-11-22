@@ -1,10 +1,8 @@
+import { A } from "@solidjs/router";
 import retroTV from "../assets/retroTV.svg";
 import mGlass from "../assets/mGlass.svg";
-import { A } from "@solidjs/router";
-import { getSourceList } from "../util/sources_util";
 
 export default function NavBar() {
-  let sources = getSourceList();
   return (
     <>
       <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
@@ -100,7 +98,6 @@ export default function NavBar() {
                   </button>
                 </A>
               </li>
-
             </ul>
           </div>
         </div>

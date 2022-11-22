@@ -1,29 +1,31 @@
 export const getSourceList = () => {
-  let name = "sources=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for (let i = 0; i < ca.length; i++) {
+  const name = "sources=";
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i += 1) {
     let c = ca[i];
-    while (c.charAt(0) == ' ') {
+    while (c.charAt(0) === " ") {
       c = c.substring(1);
     }
-    if (c.indexOf(name) == 0) {
-      let sourceListString = c.substring(name.length, c.length).replace('[', '').replace(']', '');
-      return sourceListString.split(',')
+    if (c.indexOf(name) === 0) {
+      const sourceListString = c
+        .substring(name.length, c.length)
+        .replace("[", "")
+        .replace("]", "");
+      return sourceListString.split(",");
     }
   }
   return "";
-}
+};
 
+// export const addSource = (source: String) => {
+//   const sourceList = getSourceList();
 
-export const addSource = (source: String) => {
-  let sourceList = getSourceList();
+// }
 
-}
-
-export const setFirstSource = (source: String) => {
+export const setFirstSource = (source: string) => {
   const d = new Date();
-  d.setDate(d.getDate() + 30)
-  let expires = "expires=" + d.toUTCString();
-  document.cookie = "sources=[" + source + "];" + expires + ";";
-}
+  d.setDate(d.getDate() + 30);
+  const expires = `expires=${d.toUTCString()}`;
+  document.cookie = `sources=[${source}];${expires};`;
+};
