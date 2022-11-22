@@ -35,5 +35,7 @@ Recommended VSCode extensions:
 - [code-spell-checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
+We use the Airbnb style guide. See their file naming convention [here](https://github.com/airbnb/javascript/tree/master/react#naming).
+
 ### Disclaimer
 FreeAnime.tv does not store or serve any content from its servers. All contents are provided by non-affiliated third parties.
