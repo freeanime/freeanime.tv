@@ -13,5 +13,13 @@ export default {
         }
     );
   },
-  [SourceDataType.TITLE]: (source: string, data: any): TitleData | void => {},
+  [SourceDataType.TITLE]: (source: string, data: any): TitleData | void => {
+    return <TitleData>{
+      episodeCount: data.data.total_episode,
+      name: data.data.post_title,
+      image: `https://statics.${source}/${data.data.image}`,
+      id: data.data.post_name,
+      episodes: JSON.parse(data.data.episodes),
+    };
+  },
 };
