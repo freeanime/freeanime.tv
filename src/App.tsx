@@ -7,19 +7,23 @@ import Title from "./pages/Title";
 import Catalog from "./pages/Catalog";
 import NavBar from "./components/NavBar";
 
+import "./assets/index.css";
+
 export default () => {
   const [searchParams] = useSearchParams();
   return (
     <Show when={searchParams.s} fallback={<Root />}>
       <NavBar />
-      <Switch fallback={<Catalog />}>
-        <Match when={searchParams.e}>
-          <Episode />
-        </Match>
-        <Match when={searchParams.t}>
-          <Title />
-        </Match>
-      </Switch>
+      <div class="max-w-[1450px] mx-auto">
+        <Switch fallback={<Catalog />}>
+          <Match when={searchParams.e}>
+            <Episode />
+          </Match>
+          <Match when={searchParams.t}>
+            <Title />
+          </Match>
+        </Switch>
+      </div>
     </Show>
   );
 };

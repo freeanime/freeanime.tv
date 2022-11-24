@@ -11,12 +11,10 @@ export default () => {
   );
 
   return (
-    <div>
-      <div class="flex flex-wrap justify-center p-3">
-        <For each={catalog() as CatalogData}>
-          {(title: TitleData) => <Card data={title} />}
-        </For>
-      </div>
+    <div class="flex flex-wrap justify-center p-3">
+      <For each={catalog() as CatalogData}>
+        {(title: TitleData) => <Card data={title} />}
+      </For>
     </div>
   );
 };
