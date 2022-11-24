@@ -1,6 +1,6 @@
 import { useSearchParams } from "@solidjs/router";
 import svgHacker from "../assets/crime-hacker-icon.svg";
-import { getSourceList, setFirstSource } from "../util/sources_util";
+import { getSourceList, addSource } from "../util/sources_util";
 import "../assets/index.css";
 
 export default () => {
@@ -26,7 +26,7 @@ export default () => {
             const sourceDomain = (
               document.getElementById("txtBoxSource") as HTMLInputElement
             ).value;
-            setFirstSource(sourceDomain);
+            addSource(sourceDomain);
             setSearchParams({ s: sourceDomain });
           }}
         >

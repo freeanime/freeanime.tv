@@ -1,6 +1,7 @@
 import { A } from "@solidjs/router";
 import retroTV from "../assets/retroTV.svg";
 import mGlass from "../assets/mGlass.svg";
+import { addSource } from "../util/sources_util";
 
 export default function NavBar() {
   return (
@@ -89,7 +90,7 @@ export default function NavBar() {
                   class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   <input type="text" placeholder="Search.." />
-                  <button>
+                  <button onClick={() => addSource("haha")}>
                     <img
                       src={mGlass}
                       class="h-4 w-4 ml-2 object-contain"

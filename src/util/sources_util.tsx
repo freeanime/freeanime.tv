@@ -15,17 +15,14 @@ export const getSourceList = () => {
       return sourceListString.split(",");
     }
   }
-  return "";
+  return [];
 };
 
-// export const addSource = (source: String) => {
-//   const sourceList = getSourceList();
-
-// }
-
-export const setFirstSource = (source: string) => {
+export const addSource = (source: string) => {
+  const sourceList = getSourceList();
+  sourceList.push(source);
   const d = new Date();
   d.setDate(d.getDate() + 30);
   const expires = `expires=${d.toUTCString()}`;
-  document.cookie = `sources=[${source}];${expires};`;
+  document.cookie = `sources=[${sourceList.join(", ")}];${expires};`;
 };
