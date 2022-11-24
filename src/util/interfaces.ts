@@ -4,7 +4,7 @@ export interface QueryString {
   e?: string;
 }
 
-export interface Title {
+export interface TitleData {
   episodeCount: number;
   name: string;
   image: string;
@@ -12,9 +12,9 @@ export interface Title {
   episodes: Array<string>; // Sorted in ascending order
 }
 
-export type Catalog = Array<Title>;
+export type CatalogData = Array<TitleData>;
 
-export enum Parser {
+export enum SourceDataType {
   CATALOG,
   TITLE,
 }

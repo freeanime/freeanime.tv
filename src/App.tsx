@@ -4,7 +4,7 @@ import { Switch, Match, Show } from "solid-js";
 import Root from "./pages/Root";
 import Episode from "./pages/Episode";
 import Title from "./pages/Title";
-import Source from "./pages/Source";
+import Catalog from "./pages/Catalog";
 import NavBar from "./components/NavBar";
 
 export default () => {
@@ -12,7 +12,7 @@ export default () => {
   return (
     <Show when={searchParams.s} fallback={<Root />}>
       <NavBar />
-      <Switch fallback={<Source />}>
+      <Switch fallback={<Catalog />}>
         <Match when={searchParams.e}>
           <Episode />
         </Match>

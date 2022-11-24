@@ -1,6 +1,17 @@
-import { Catalog, Title, Parser } from "../interfaces.js";
+import { CatalogData, TitleData, SourceDataType } from "../interfaces.js";
 
 export default {
-  [Parser.CATALOG]: (source: string, data: object): Catalog | void => {},
-  [Parser.TITLE]: (source: string, data: object): Title | void => {},
+  [SourceDataType.CATALOG]: (source: string, data: any): CatalogData | void => {
+    return data.data.map(
+      (t: any) =>
+        <TitleData>{
+          episodeCount: t.total_episode,
+          name: t.post_title,
+          image: `https://statics.${source}/${t.image}`,
+          id: t.post_name,
+          episodes: JSON.parse(t.episodes),
+        }
+    );
+  },
+  [SourceDataType.TITLE]: (source: string, data: any): TitleData | void => {},
 };
