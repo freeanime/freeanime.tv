@@ -31,9 +31,5 @@ export const fetchEpisodeList = async (source: string, title: string) => {
       `https://${source}/my-ajax?page=1&limit=100&movie_id=${movieId}&action=load_list_episode&time=2022-11-26-01-30-00`
     )
   ).json();
-  console.log("Episode List");
-  console.log(episodeList);
-  console.log("Done");
-
-  return { hello: 1 };
+  return episodeList;
 };

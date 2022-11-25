@@ -12,6 +12,7 @@ const Card: Component<{ data: TitleData }> = (props) => {
       <img src={props.data.image} class="object-cover w-full h-[300px]" />
       <div class="text-center px-2 py-2">
         <a
+          class="cursor-pointer"
           onClick={() => {
             setSearchParams({
               t: props.data.id,
@@ -22,7 +23,6 @@ const Card: Component<{ data: TitleData }> = (props) => {
           {props.data.name}
         </a>
       </div>
-      <button onClick={() => console.log(props.data)}>Log</button>
     </div>
   );
 };
