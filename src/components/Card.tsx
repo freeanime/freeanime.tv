@@ -14,7 +14,7 @@ const Card: Component<{ data: TitleData }> = (props) => {
         <a
           onClick={() => {
             setSearchParams({
-              t: props.data.name,
+              t: props.data.id,
               e: props.data.episodes[0].id,
             });
           }}
