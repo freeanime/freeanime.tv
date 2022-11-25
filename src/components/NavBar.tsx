@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router";
-import retroTV from "../assets/retroTV.svg";
+import logo from "../assets/logo.svg";
 import mGlass from "../assets/mGlass.svg";
 import { addSource } from "../util/sources_util";
 
@@ -9,7 +9,7 @@ export default function NavBar() {
       <nav class="px-2 sm:px-4 py-2.5 dark:bg-gray-800">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
           <A href="/" class="flex items-center">
-            <img src={retroTV} class="h-6 mr-3 sm:h-9" alt="Solid.js Logo" />
+            <img src={logo} class="h-6 mr-3 sm:h-9" alt="Solid.js Logo" />
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               FreeAnime.tv
             </span>
