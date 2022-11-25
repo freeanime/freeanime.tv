@@ -45,8 +45,8 @@ Prefered methods for piggybacking on APIs:
 
 1. Use source's native JSON API
 2. Use HTML parser on source' native HTML API
-3. Use source's JSON search API to find the title
 4. Use HTML parser on the source's entire page
+3. Use source's JSON search API to find the title
 5. Use HTML parser on the source's HTML search results to find the title
 
 ### Disclaimer
