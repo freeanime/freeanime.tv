@@ -22,6 +22,7 @@ const Card: Component<{ data: TitleData }> = (props) => {
           {props.data.name}
         </a>
       </div>
+      <button onClick={() => console.log(props.data)}>Log</button>
     </div>
   );
 };
