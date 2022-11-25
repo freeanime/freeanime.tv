@@ -37,5 +37,17 @@ Recommended VSCode extensions:
 
 We use the Airbnb style guide. See their file naming convention [here](https://github.com/airbnb/javascript/tree/master/react#naming).
 
+### API Parsing
+
+Every page must be self-contained, meaning if you give that link to someone else, everything works as intended.
+
+Prefered methods for piggybacking on APIs:
+
+1. Use source's native JSON API
+2. Use HTML parser on source' native HTML API
+3. Use source's JSON search API to find the title
+4. Use HTML parser on the source's entire page
+5. Use HTML parser on the source's HTML search results to find the title
+
 ### Disclaimer
 FreeAnime.tv does not store or serve any content from its servers. All contents are provided by non-affiliated third parties.
