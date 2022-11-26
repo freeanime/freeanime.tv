@@ -1,19 +1,25 @@
-import { A } from "@solidjs/router";
+import { A, useSearchParams } from "@solidjs/router";
 import logo from "../assets/logo.svg";
 import mGlass from "../assets/mGlass.svg";
 import { addSource } from "../util/sources_util";
+import QueryA from "./QueryA";
 
 export default function NavBar() {
+  const [searchParams] = useSearchParams();
   return (
     <>
       <nav class="px-2 sm:px-4 py-2.5 dark:bg-gray-800">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
-          <A href="/" class="flex items-center">
+          <QueryA
+            setParams={{ s: searchParams.s }}
+            replace={true}
+            class="flex items-center"
+          >
             <img src={logo} class="h-6 mr-3 sm:h-9" alt="Solid.js Logo" />
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               FreeAnime.tv
             </span>
-          </A>
+          </QueryA>
 
           <button
             data-collapse-toggle="navbar-default"

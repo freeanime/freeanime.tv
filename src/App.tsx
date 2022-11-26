@@ -10,6 +10,9 @@ import NavBar from "./components/NavBar";
 import "./assets/index.css";
 
 export default () => {
+  console.warn(
+    "WHOLE PAGE RENDER! UNLESS THIS WAS INTENTIONAL, SEEING THIS MORE THAN ONCE IS BAD!"
+  );
   const [searchParams] = useSearchParams();
   return (
     <Show when={searchParams.s} fallback={<Root />}>
