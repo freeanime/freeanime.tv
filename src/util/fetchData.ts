@@ -1,4 +1,4 @@
-import { SourceDataType } from "./interfaces.js";
+import { EpisodeListData, SourceDataType } from "./interfaces.js";
 import Json1Parsers from "./parser_api/Json1.js";
 
 export const fetchCatalog = async (
@@ -20,7 +20,12 @@ export const fetchCatalog = async (
   }
 };
 
-export const fetchEpisodeList = async (source: string, title: string) => {
+export const fetchEpisodeList = async (
+  sourceDataType: SourceDataType,
+  source: string,
+  title: string,
+  pageNumber: number
+) => {
   const data = await (await fetch(`https://${source}/movie/${title}/`)).text();
   const movieIdIndex = data.indexOf("movie_id =");
   const firstQuoteIndex = data.indexOf("'", movieIdIndex) + 1;
@@ -28,8 +33,14 @@ export const fetchEpisodeList = async (source: string, title: string) => {
   const movieId = data.substring(firstQuoteIndex, secondQuoteIndex);
   const episodeList = await (
     await fetch(
-      `https://${source}/my-ajax?page=1&limit=100&movie_id=${movieId}&action=load_list_episode&time=2022-11-26-01-30-00`
+      `https://${source}/my-ajax?page=${pageNumber}&limit=100&movie_id=${movieId}&action=load_list_episode`
     )
   ).json();
-  return episodeList;
+  console.log(episodeList);
+  const parsed = Json1Parsers[sourceDataType](
+    source,
+    episodeList
+  ) as EpisodeListData;
+  console.log(parsed);
+  return parsed;
 };

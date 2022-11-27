@@ -17,7 +17,7 @@ export default () => {
   return (
     <Show when={searchParams.s} fallback={<Root />}>
       <NavBar />
-      <div class="max-w-[1450px] mx-auto">
+      <div class="mx-auto">
         <Switch fallback={<Catalog />}>
           <Match when={searchParams.e}>
             <Episode />
