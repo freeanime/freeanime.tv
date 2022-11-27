@@ -20,7 +20,7 @@ export const fetchCatalog = async (
   }
 };
 
-export const fetchEpisodeList = async (
+export const fetchEpisodeData = async (
   sourceDataType: SourceDataType,
   source: string,
   title: string,
@@ -36,11 +36,9 @@ export const fetchEpisodeList = async (
       `https://${source}/my-ajax?page=${pageNumber}&limit=100&movie_id=${movieId}&action=load_list_episode`
     )
   ).json();
-  console.log(episodeList);
   const parsed = Json1Parsers[sourceDataType](
     source,
     episodeList
   ) as EpisodeListData;
-  console.log(parsed);
   return parsed;
 };

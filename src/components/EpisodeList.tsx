@@ -1,7 +1,5 @@
-import { useSearchParams } from "@solidjs/router";
-import { Component, createResource, For } from "solid-js";
-import { fetchEpisodeList } from "../util/fetchData.js";
-import { EpisodeData, SourceDataType } from "../util/interfaces.js";
+import { Component, For } from "solid-js";
+import { EpisodeData, EpisodeListData } from "../util/interfaces.js";
 import QueryA from "./QueryA.jsx";
 
 const EpisodeSquare: Component<{ data: EpisodeData }> = (props) => {
@@ -17,19 +15,15 @@ const EpisodeSquare: Component<{ data: EpisodeData }> = (props) => {
   );
 };
 
-const EpisodeList: Component = () => {
-  const [searchParams] = useSearchParams();
-  const [episodeList] = createResource(
-    () => [searchParams.s, searchParams.t],
-    ([source, title]) =>
-      fetchEpisodeList(SourceDataType.EPISODELIST, source, title, 1)
-  );
+const EpisodeList: Component<{ data?: EpisodeListData }> = (props) => {
   return (
-    <div class="flex flex-wrap justify-center m-3 p-3 max-w-[300px] max-h-[750px] bg-gray-900 rounded-md">
-      <For each={episodeList()?.episodes}>
-        {(episode: EpisodeData) => <EpisodeSquare data={episode} />}
-      </For>
-    </div>
+    <>
+      <div class="flex flex-wrap justify-center m-3 p-3 w-[300px] h-[750px] bg-gray-900 rounded-md">
+        <For each={props.data?.episodes}>
+          {(episode: EpisodeData) => <EpisodeSquare data={episode} />}
+        </For>
+      </div>
+    </>
   );
 };
 
