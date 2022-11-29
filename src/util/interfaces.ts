@@ -2,6 +2,7 @@ export interface QueryString {
   s?: string;
   t?: string;
   e?: string;
+  p?: string;
 }
 
 export interface EpisodeData {
