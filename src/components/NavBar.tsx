@@ -6,7 +6,7 @@ export default () => {
   const [searchParams] = useSearchParams();
   return (
     <header class="bg-[#222]">
-      <nav class="flex justify-between mx-auto max-w-[1600px] h-[66px] py-[8px] text-[#aaa]">
+      <nav class="flex flex-wrap justify-between mx-auto max-w-[1600px] h-[66px] py-[8px] text-[#aaa]">
         <div class="flex items-center leading-[0]">
           <QueryA setParams={{ s: searchParams.s }} replace={true} class="m-4">
             <img

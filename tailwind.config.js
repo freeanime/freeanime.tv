@@ -12,7 +12,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: "Source Sans Pro",
+      sans: ["Helvetica", "Arial", "sans-serif"],
     },
     textColor: {
       primary: "#aaa",
