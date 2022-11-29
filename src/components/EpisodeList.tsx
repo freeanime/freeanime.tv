@@ -39,8 +39,8 @@ const EpisodeList: Component<{ data?: EpisodeListData }> = (props) => {
   return (
     <>
       {/* <EpisodePageSelector /> */}
-      <div class="mt-1 pt-3 w-[300px] h-[50px] bg-gray-900">Hello</div>
-      <div class="flex flex-wrap justify-center m-3 p-3 w-[300px] h-[750px] bg-gray-900 rounded-md">
+      {/* <div class="mt-1 pt-3 w-[300px] h-[50px] bg-freeAnime-boxGray">Hello</div> */}
+      <div class="flex flex-wrap justify-center m-3 p-3 w-[300px] h-[710px] bg-black rounded-md">
         <For each={props.data?.episodes}>
           {(episode: EpisodeData) => <EpisodeSquare data={episode} />}
         </For>

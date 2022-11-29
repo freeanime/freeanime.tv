@@ -15,16 +15,16 @@ export default () => {
   );
 
   return (
-    <div class="flex bg-zinc-800 w-full">
-      <EpisodeList data={episodeData()} />
+    <div class="flex w-full flex-grow">
       <iframe
-        class="w-full"
+        class="w-[1280px] h-[720px] m-3 p-3"
         src={
           episodeData()?.episodes.find(
             (ep: EpisodeData) => ep.id.toString() === searchParams.e
           )?.url_player
         }
       />
+      <EpisodeList data={episodeData()} />
     </div>
   );
 };

@@ -2,9 +2,17 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        freeAnime: {
+          bgGray: "#111",
+          logoBlue: "#29e",
+          boxGray: "#222",
+        },
+      },
+    },
     fontFamily: {
-      sans: "Helvetica",
+      sans: "Source Sans Pro",
     },
     textColor: {
       primary: "#aaa",

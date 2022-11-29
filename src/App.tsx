@@ -17,15 +17,31 @@ export default () => {
   return (
     <Show when={searchParams.s} fallback={<Root />}>
       <NavBar />
-      <div class="mx-auto">
-        <Switch fallback={<Catalog />}>
-          <Match when={searchParams.e}>
-            <Episode />
-          </Match>
-          <Match when={searchParams.t}>
-            <Title />
-          </Match>
-        </Switch>
+      <div class="mx-auto bg-freeAnime-bgGray">
+        <div class="max-w-[1750px] mx-auto">
+          <Switch fallback={<Catalog />}>
+            <Match when={searchParams.e}>
+              <Episode />
+            </Match>
+            <Match when={searchParams.t}>
+              <Title />
+            </Match>
+          </Switch>
+        </div>
+        <div class="max-w-[1750px] mx-auto">
+          <hr class="border-[#666] mt-3" />
+          <footer id="footer" class="mt-3 h-[50px] sticky top-[100vh]">
+            <div class="justify-between flex flex-wrap">
+              <p class="text-[#666] self-left">
+                Disclaimer: FreeAnime.tv does not store any files on its server.
+                All contents are provided by non-affiliated third parties.
+              </p>
+              <p class="text-[#666] self-right">
+                FreeAnime.tv is open source. Help improve it
+              </p>
+            </div>
+          </footer>
+        </div>
       </div>
     </Show>
   );
