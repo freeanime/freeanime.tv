@@ -50,7 +50,7 @@ export default () => {
             />
           </div>
           <button class="m-4 bg-[#111] px-4 rounded-md">
-            <i class="fa fa-cog text-xl p-1" />
+            <i class="fa fa-cog text-xl py-1 pr-1" />
             Settings
           </button>
         </div>
