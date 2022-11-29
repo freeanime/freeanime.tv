@@ -1,114 +1,60 @@
-import { A, useSearchParams } from "@solidjs/router";
+import { useSearchParams } from "@solidjs/router";
 import logo from "../assets/logo.svg";
-import mGlass from "../assets/mGlass.svg";
-import { addSource } from "../util/sources_util";
 import QueryA from "./QueryA";
 
-export default function NavBar() {
+export default () => {
   const [searchParams] = useSearchParams();
   return (
-    <>
-      <nav class="px-2 sm:px-4 py-2.5 dark:bg-gray-800">
-        <div class="container flex flex-wrap items-center justify-between mx-auto">
-          <QueryA
-            setParams={{ s: searchParams.s }}
-            replace={true}
-            class="flex items-center"
-          >
-            <img src={logo} class="h-6 mr-3 sm:h-9" alt="Solid.js Logo" />
-            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              FreeAnime.tv
+    <header class="bg-[#222]">
+      <nav class="flex justify-between mx-auto max-w-[1600px] h-[66px] py-[8px] text-[#aaa]">
+        <div class="flex items-center leading-[0]">
+          <QueryA setParams={{ s: searchParams.s }} replace={true} class="m-4">
+            <img
+              src={logo}
+              width="50"
+              height="50"
+              class="inline align-baseline"
+            />
+            <span class="font-bold text-4xl leading-[0]">
+              <span class="text-accent">F</span>ree
+              <span class="text-accent">A</span>nime.tv
             </span>
           </QueryA>
-
-          <button
-            data-collapse-toggle="navbar-default"
-            type="button"
-            class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-default"
-            aria-expanded="false"
+          <QueryA setParams={{ s: searchParams.s }} replace={true} class="m-4">
+            Updated
+          </QueryA>
+          <QueryA
+            setParams={{ s: searchParams.s, n: "l" }}
+            replace={true}
+            class="m-4"
           >
-            <span class="sr-only">Open main menu</span>
-            <svg
-              class="w-6 h-6"
-              aria-hidden="true"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </button>
-
-          <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-800 dark:border-gray-700">
-              <li>
-                <A
-                  href="/groupwatch"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Group Watch
-                </A>
-              </li>
-
-              <li>
-                <A
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Random
-                </A>
-              </li>
-
-              <li>
-                <A
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  A-Z
-                </A>
-              </li>
-              <li>
-                <A
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  About
-                </A>
-              </li>
-
-              <li>
-                <A
-                  href="/sources"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Sources
-                </A>
-              </li>
-
-              <li>
-                <A
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  <input type="text" placeholder="Search.." />
-                  <button onClick={() => addSource("haha")}>
-                    <img
-                      src={mGlass}
-                      class="h-4 w-4 ml-2 object-contain"
-                      alt="Search Logo"
-                    />
-                  </button>
-                </A>
-              </li>
-            </ul>
+            Anime List
+          </QueryA>
+          <QueryA
+            setParams={{ s: searchParams.s, n: "g" }}
+            replace={true}
+            class="m-4"
+          >
+            Genres
+          </QueryA>
+        </div>
+        <div class="flex items-center">
+          <div class="m-4 bg-[#111] rounded-md">
+            <QueryA setParams={{ s: searchParams.s, n: "s" }} replace={true}>
+              <i class="fa fa-magnifying-glass text-lg pl-3 pr-1" />
+            </QueryA>
+            <input
+              type="text"
+              placeholder="Search Anime..."
+              class="placeholder-secondary bg-[#111] py-1.5 min-w-[300px] rounded-md pl-2"
+            />
           </div>
+          <button class="m-4 bg-[#111] px-4 rounded-md">
+            <i class="fa fa-cog text-xl p-1" />
+            Settings
+          </button>
         </div>
       </nav>
-    </>
+    </header>
   );
-}
+};
