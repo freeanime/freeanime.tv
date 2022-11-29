@@ -21,7 +21,7 @@ const Footer = () => {
         <span>
           FreeAnime.tv is open source. Help improve it
           <a
-            href="github.com/freeanime/freeanime.tv"
+            href="https://github.com/freeanime/freeanime.tv"
             class="fa fa-github text-xl ml-2"
           />
         </span>
