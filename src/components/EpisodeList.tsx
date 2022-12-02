@@ -35,7 +35,7 @@ const EpisodeSquare: Component<{ data: EpisodeData }> = (props) => {
         setParams={{ e: props.data.id }}
         class="rounded-md bg-[#111] hover:bg-[#29e] m-1 w-[30px] h-[20px]"
       >
-        <p class="font-sans font-medium text-center text-sm text-neutral-300 text-[#aaa]">
+        <p class="font-sans font-medium text-center text-sm text-neutral-300 text-[#aaa] hover:text-[#111]">
           {String(props.data.episodeNumber).padStart(3, "0")}
         </p>
       </QueryA>
