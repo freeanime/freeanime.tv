@@ -10,7 +10,7 @@ const Card: Component<{ data: TitleData }> = (props) => {
       <QueryA
         setParams={{
           t: props.data.id,
-          e: props.data.episodes[0].id,
+          e: props.data.episodes[props.data.episodes.length - 1].id,
         }}
       >
         <img src={props.data.image} class="object-cover w-full h-[300px]" />

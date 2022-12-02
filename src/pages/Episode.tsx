@@ -6,12 +6,12 @@ import { EpisodeData, SourceDataType } from "../util/interfaces.js";
 
 export default () => {
   const [searchParams] = useSearchParams();
-  const pageNumber =
-    searchParams.p === undefined ? 1 : parseInt(searchParams.p, 10);
+  // const pageNumber =
+  //   searchParams.p === undefined ? 1 : parseInt(searchParams.p, 10);
   const [episodeData] = createResource(
-    () => [searchParams.s, searchParams.t],
-    ([source, title]) =>
-      fetchEpisodeData(SourceDataType.EPISODELIST, source, title, pageNumber)
+    () => [searchParams.s, searchParams.t, searchParams.p],
+    ([source, title, page]) =>
+      fetchEpisodeData(SourceDataType.EPISODELIST, source, title, page)
   );
 
   return (

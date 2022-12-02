@@ -24,8 +24,9 @@ export const fetchEpisodeData = async (
   sourceDataType: SourceDataType,
   source: string,
   title: string,
-  pageNumber: number
+  pageNumber: string
 ) => {
+  const page = pageNumber || "1";
   const data = await (await fetch(`https://${source}/movie/${title}/`)).text();
   const movieIdIndex = data.indexOf("movie_id =");
   const firstQuoteIndex = data.indexOf("'", movieIdIndex) + 1;
@@ -33,7 +34,7 @@ export const fetchEpisodeData = async (
   const movieId = data.substring(firstQuoteIndex, secondQuoteIndex);
   const episodeList = await (
     await fetch(
-      `https://${source}/my-ajax?page=${pageNumber}&limit=100&movie_id=${movieId}&action=load_list_episode`
+      `https://${source}/my-ajax?page=${page}&limit=100&movie_id=${movieId}&action=load_list_episode`
     )
   ).json();
   const parsed = Json1Parsers[sourceDataType](
