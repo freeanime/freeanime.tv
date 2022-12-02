@@ -15,28 +15,31 @@ import {
 } from "../util/interfaces.js";
 import QueryA from "./QueryA.jsx";
 
-const EpisodeSquare: Component<{ data: EpisodeData }> = (props) => {
+const EpisodeSquare: Component<{
+  episodeData: EpisodeData;
+  pageNumber: string;
+}> = (props) => {
   const [searchParams] = useSearchParams();
   return (
     <Show
-      when={props.data.id.toString() !== searchParams.e}
+      when={props.episodeData.id.toString() !== searchParams.e}
       fallback={
         <QueryA
-          setParams={{ e: props.data.id }}
+          setParams={{ e: props.episodeData.id, p: props.pageNumber }}
           class="rounded-md bg-[#29e] m-1 w-[30px] h-[20px]"
         >
           <p class="font-sans font-medium text-center text-sm flex-grow text-[#111]">
-            {String(props.data.episodeNumber).padStart(3, "0")}
+            {String(props.episodeData.episodeNumber).padStart(3, "0")}
           </p>
         </QueryA>
       }
     >
       <QueryA
-        setParams={{ e: props.data.id }}
+        setParams={{ e: props.episodeData.id, p: props.pageNumber }}
         class="rounded-md bg-[#111] hover:bg-[#29e] m-1 w-[30px] h-[20px]"
       >
         <p class="font-sans font-medium text-center text-sm text-neutral-300 text-[#aaa] hover:text-[#111]">
-          {String(props.data.episodeNumber).padStart(3, "0")}
+          {String(props.episodeData.episodeNumber).padStart(3, "0")}
         </p>
       </QueryA>
     </Show>
@@ -47,6 +50,7 @@ const EpisodeList: Component<{ data?: EpisodeListData }> = (props) => {
   const [separators, setSeparators] = createSignal<Array<string>>([]);
   const [episodes, setEpisodes] = createSignal<Array<EpisodeData>>();
   const [searchParams] = useSearchParams();
+  const [page, setPage] = createSignal<string>(searchParams.p);
 
   createEffect(() => {
     const totalPages = props.data?.totalPages;
@@ -67,13 +71,14 @@ const EpisodeList: Component<{ data?: EpisodeListData }> = (props) => {
     if (props.data?.episodes) setEpisodes(props.data?.episodes);
   });
 
-  const fetchEpisodes = async (page: string) => {
+  const fetchEpisodes = async (_page: string) => {
     const episodeListData = await fetchEpisodeData(
       SourceDataType.EPISODE_LIST,
       searchParams.s,
       searchParams.t,
-      page
+      _page
     );
+    setPage(_page);
     setEpisodes(episodeListData.episodes);
   };
 
@@ -93,7 +98,9 @@ const EpisodeList: Component<{ data?: EpisodeListData }> = (props) => {
             <div class="rounded-md bg-[#29e] m-1 w-[30px] h-[20px] animate-pulse" />
           }
         >
-          {(episode: EpisodeData) => <EpisodeSquare data={episode} />}
+          {(episode: EpisodeData) => (
+            <EpisodeSquare episodeData={episode} pageNumber={page()} />
+          )}
         </For>
       </div>
     </div>
