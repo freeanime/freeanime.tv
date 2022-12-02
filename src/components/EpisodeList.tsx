@@ -7,8 +7,12 @@ import {
   Index,
   Show,
 } from "solid-js";
-import { createStore } from "solid-js/store";
-import { EpisodeData, EpisodeListData } from "../util/interfaces.js";
+import { fetchEpisodeData } from "../util/fetchData.js";
+import {
+  EpisodeData,
+  EpisodeListData,
+  SourceDataType,
+} from "../util/interfaces.js";
 import QueryA from "./QueryA.jsx";
 
 const EpisodeSquare: Component<{ data: EpisodeData }> = (props) => {
@@ -19,9 +23,9 @@ const EpisodeSquare: Component<{ data: EpisodeData }> = (props) => {
       fallback={
         <QueryA
           setParams={{ e: props.data.id }}
-          class="rounded-md bg-[#2299ee] m-1 w-[30px] h-[20px]"
+          class="rounded-md bg-[#29e] m-1 w-[30px] h-[20px]"
         >
-          <p class="font-sans font-medium text-center text-sm flex-grow text-[#f8fafc]">
+          <p class="font-sans font-medium text-center text-sm flex-grow text-[#111]">
             {String(props.data.episodeNumber).padStart(3, "0")}
           </p>
         </QueryA>
@@ -29,9 +33,9 @@ const EpisodeSquare: Component<{ data: EpisodeData }> = (props) => {
     >
       <QueryA
         setParams={{ e: props.data.id }}
-        class="rounded-md bg-neutral-600 hover:bg-[#2299ee] m-1 w-[30px] h-[20px]"
+        class="rounded-md bg-[#111] hover:bg-[#29e] m-1 w-[30px] h-[20px]"
       >
-        <p class="font-sans font-medium text-center text-sm text-neutral-300 hover:text-[#f8fafc]">
+        <p class="font-sans font-medium text-center text-sm text-neutral-300 text-[#aaa]">
           {String(props.data.episodeNumber).padStart(3, "0")}
         </p>
       </QueryA>
@@ -39,18 +43,16 @@ const EpisodeSquare: Component<{ data: EpisodeData }> = (props) => {
   );
 };
 
-const EpisodePageSelector: Component<{ data?: EpisodeListData }> = (props) => {
-  const [currentPage, setCurrentPage] = createSignal(props.data?.currentPage);
-
-  // const separators: string[] = [];
-
-  const [separators, setSeparators] = createStore<Array<string>>([]);
+const EpisodeList: Component<{ data?: EpisodeListData }> = (props) => {
+  const [separators, setSeparators] = createSignal<Array<string>>([]);
+  const [episodes, setEpisodes] = createSignal<Array<EpisodeData>>();
+  const [searchParams] = useSearchParams();
 
   createEffect(() => {
     const totalPages = props.data?.totalPages;
     if (totalPages) {
       const tempSeparators: string[] = [];
-      for (let i = 1; i <= totalPages; i += 1) {
+      for (let i = totalPages; i > 0; i -= 1) {
         const maxEpisode = i * 100;
         const minEpisode = maxEpisode - 99;
         tempSeparators.push(
@@ -61,38 +63,40 @@ const EpisodePageSelector: Component<{ data?: EpisodeListData }> = (props) => {
     }
   });
 
+  createEffect(() => {
+    if (props.data?.episodes) setEpisodes(props.data?.episodes);
+  });
+
+  const fetchEpisodes = async (page: string) => {
+    const episodeListData = await fetchEpisodeData(
+      SourceDataType.EPISODELIST,
+      searchParams.s,
+      searchParams.t,
+      page
+    );
+    setEpisodes(episodeListData.episodes);
+  };
+
   return (
     <div>
-      <div class="mt-1 pt-3 max-w-[300px] max-h-[50px] bg-black flex rounded-md ml-3 mt-6 p-3">
-        {/* <QueryA class="bg-white" setParams={{ p: 2 }}>
-          Separators
-        </QueryA> */}
-        <div class="bg-white">{separators}</div>
-        <Index each={separators}>
-          {(separator) => <text class="text-white">{separator()}</text>}
-        </Index>
+      <div class="mt-1 pt-3 max-w-[300px] max-h-[50px] bg-[#222] flex rounded-md ml-3 mt-6 p-3">
+        <select onChange={(e) => fetchEpisodes(e.currentTarget.value)}>
+          <Index each={separators()}>
+            {(separator, i) => <option value={i + 1}>{separator()}</option>}
+          </Index>
+        </select>
+      </div>
+      <div class="flex flex-wrap m-3 p-3 w-[300px] bg-[#222] rounded-md">
+        <For
+          each={episodes()}
+          fallback={
+            <div class="rounded-md bg-[#29e] m-1 w-[30px] h-[20px] animate-pulse" />
+          }
+        >
+          {(episode: EpisodeData) => <EpisodeSquare data={episode} />}
+        </For>
       </div>
     </div>
-  );
-};
-
-const EpisodeList: Component<{ data?: EpisodeListData }> = (props) => {
-  return (
-    <>
-      <div>
-        <EpisodePageSelector data={props.data} />
-        <div class="flex flex-wrap justify-center m-3 p-3 w-[300px] h-[650px] bg-black rounded-md">
-          <For
-            each={props.data?.episodes}
-            fallback={
-              <div class="rounded-md bg-[#2299ee] m-1 w-[30px] h-[20px] animate-pulse" />
-            }
-          >
-            {(episode: EpisodeData) => <EpisodeSquare data={episode} />}
-          </For>
-        </div>
-      </div>
-    </>
   );
 };
 
