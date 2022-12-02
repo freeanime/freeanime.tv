@@ -11,7 +11,7 @@ export default () => {
   const [episodeData] = createResource(
     () => [searchParams.s, searchParams.t, searchParams.p],
     ([source, title, page]) =>
-      fetchEpisodeData(SourceDataType.EPISODELIST, source, title, page)
+      fetchEpisodeData(SourceDataType.EPISODE_LIST, source, title, page)
   );
 
   return (

@@ -28,7 +28,7 @@ export default {
       episodes: JSON.parse(data.data.episodes),
     };
   },
-  [SourceDataType.EPISODELIST]: (
+  [SourceDataType.EPISODE_LIST]: (
     source: string,
     data: any
   ): EpisodeListData | void => {

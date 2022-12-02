@@ -33,6 +33,6 @@ export interface EpisodeListData {
 export enum SourceDataType {
   CATALOG,
   TITLE,
-  EPISODELIST,
+  EPISODE_LIST,
   EPISODE,
 }

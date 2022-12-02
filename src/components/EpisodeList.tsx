@@ -69,7 +69,7 @@ const EpisodeList: Component<{ data?: EpisodeListData }> = (props) => {
 
   const fetchEpisodes = async (page: string) => {
     const episodeListData = await fetchEpisodeData(
-      SourceDataType.EPISODELIST,
+      SourceDataType.EPISODE_LIST,
       searchParams.s,
       searchParams.t,
       page
