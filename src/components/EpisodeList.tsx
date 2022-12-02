@@ -26,7 +26,7 @@ const EpisodeSquare: Component<{
       fallback={
         <QueryA
           setParams={{ e: props.episodeData.id, p: props.pageNumber }}
-          class="rounded-md bg-[#29e] m-1 w-[30px] h-[20px]"
+          class="rounded-md bg-[#29e] m-1 w-[40px] h-[23px]"
         >
           <p class="font-sans font-medium text-center text-sm flex-grow text-[#111]">
             {String(props.episodeData.episodeNumber).padStart(3, "0")}
@@ -36,9 +36,9 @@ const EpisodeSquare: Component<{
     >
       <QueryA
         setParams={{ e: props.episodeData.id, p: props.pageNumber }}
-        class="rounded-md bg-[#111] hover:bg-[#29e] m-1 w-[30px] h-[20px]"
+        class="rounded-md bg-[#111] hover:bg-[#29e] m-1 w-[40px] h-[23px]"
       >
-        <p class="font-sans font-medium text-center text-sm text-neutral-300 text-[#aaa] hover:text-[#111]">
+        <p class="font-sans font-medium text-center text-[14px] text-neutral-300 text-[#aaa] hover:text-[#111]">
           {String(props.episodeData.episodeNumber).padStart(3, "0")}
         </p>
       </QueryA>
@@ -84,14 +84,22 @@ const EpisodeList: Component<{ data?: EpisodeListData }> = (props) => {
 
   return (
     <div>
-      <div class="mt-1 pt-3 max-w-[300px] max-h-[50px] bg-[#222] flex rounded-md ml-3 mt-6 p-3">
-        <select onChange={(e) => fetchEpisodes(e.currentTarget.value)}>
+      <div class="mt-1 pt-3 max-w-[275px] max-h-[50px] bg-[#222] flex rounded-md ml-3 mt-6 p-3">
+        <select class="rounded-md h-[30px] w-[95px] bg-[#111] text-sm  text-center text-[#aaa] mr-2">
+          <option>Sub & Dub</option>
+          <option>Sub Only</option>
+          <option>Dub Only</option>
+        </select>
+        <select
+          class="rounded-md bg-[#111] h-[30px] w-[80px] text-center text-sm text-[#aaa] mr-2"
+          onChange={(e) => fetchEpisodes(e.currentTarget.value)}
+        >
           <Index each={separators()}>
             {(separator, i) => <option value={i + 1}>{separator()}</option>}
           </Index>
         </select>
       </div>
-      <div class="flex flex-wrap m-3 p-3 w-[300px] bg-[#222] rounded-md">
+      <div class="flex flex-wrap m-3 p-3 w-[275px] h-[640px] bg-[#222] rounded-md">
         <For
           each={episodes()}
           fallback={
