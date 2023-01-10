@@ -6,15 +6,21 @@ import QueryA from "./QueryA.jsx";
 
 const Card: Component<{ data: TitleData }> = (props) => {
   return (
-    <div class="bg-slate-200 flex-1 min-w-[180px] max-w-[210px] m-3 flex flex-col">
+    <div class="flex-1 min-w-[180px] max-w-[210px] m-3 flex flex-col">
       <QueryA
         setParams={{
           t: props.data.id,
           e: props.data.episodes[props.data.episodes.length - 1].id,
         }}
       >
-        <img src={props.data.image} class="object-cover w-full h-[300px]" />
-        <div class="text-center px-2 py-2">{props.data.name}</div>
+        <img
+          src={props.data.image}
+          class="object-cover rounded-sm w-full h-[300px]"
+        />
+        <div class="text-left text-[#aaaa] text-sm px-2 py-2">
+          {props.data.name}
+          {props.data.dubsub}
+        </div>
       </QueryA>
     </div>
   );

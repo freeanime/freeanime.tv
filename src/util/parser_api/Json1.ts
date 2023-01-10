@@ -16,6 +16,7 @@ export default {
           image: `https://statics.${source}/${t.image}`,
           id: t.post_name,
           episodes: JSON.parse(t.episodes),
+          dubsub: t.sub,
         }
     );
   },
@@ -26,6 +27,7 @@ export default {
       image: `https://statics.${source}/${data.data.image}`,
       id: data.data.post_name,
       episodes: JSON.parse(data.data.episodes),
+      dubsub: data.data.sub,
     };
   },
   [SourceDataType.EPISODE_LIST]: (

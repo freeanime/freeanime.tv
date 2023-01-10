@@ -20,6 +20,7 @@ export interface TitleData {
   image: string;
   id: string; // Used to go to the title page
   episodes: Array<EpisodeData>; // Sorted in ascending order
+  dubsub: string;
 }
 
 export type CatalogData = Array<TitleData>;
