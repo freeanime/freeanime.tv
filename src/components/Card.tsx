@@ -7,6 +7,7 @@ import QueryA from "./QueryA.jsx";
 const Card: Component<{ data: TitleData }> = (props) => {
   return (
     <div class="flex-1 min-w-[180px] max-w-[210px] m-3 flex flex-col">
+      {/* <div>Yolo</div> */}
       <QueryA
         setParams={{
           t: props.data.id,
